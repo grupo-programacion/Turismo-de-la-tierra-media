@@ -6,8 +6,8 @@ public class Usuario {
 	private String preferencia;
 	private comprable[]sugerenciadiaria;
 	private int horasnecesarias;
-	private int monedasnecesarias;
-	private String nombre;
+	private double monedasnecesarias;
+	private String Nombre;
 	
 	public Usuario(String nombre,String preferencia, double monedas, int tiempo) {
 		super();
@@ -59,6 +59,12 @@ public class Usuario {
 	    return this.horasnecesarias;
 	}	
 	
-	public void guardarComprable() {}
+	public void guardarComprable(comprable compra) {
+		this.sugerenciadiaria;
+		this.restarMonedas(compra.getCosto());
+		this.restarTiempo(compra.getTiempo());
+		this.horasnecesarias = this.horasnecesarias + compra.getTiempo();
+		this.monedasnecesarias = this.monedasnecesarias + compra.getCosto();
+	}
 	
 }

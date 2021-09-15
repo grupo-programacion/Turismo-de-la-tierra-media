@@ -30,17 +30,20 @@ public class Atraccion implements comprable{
 	}
 	
 	public boolean hayCupo() {
-		return cupo <= (personas +1);
+		return cupo > personas;
 	}
 	
 	public void agregarPersona() {
 			personas++;
 	}
 
+	public String getNombre() {
+	 return	this.nombre;
+	}
+	
 	@Override
-	public boolean esOContiene() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean esOContiene(comprable compra) {
+      return this.nombre.equals(compra.getNombre()) || ;
 	}
 
 

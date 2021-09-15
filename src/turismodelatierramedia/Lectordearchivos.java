@@ -88,13 +88,16 @@ public class Lectordearchivos {
 			while(sc.hasNextLine()) {
 				line = sc.nextLine().split("-");
 
+				if (equal(Integer.parseInt(line[0]), 1)){
+				
 				promociones.add(
 					new Promocion(
 						line[0], 
 						line[1], 
 					    Double.parseDouble(line[2])
 					)
-				);
+				);} else if (line[0] = 2) {}
+				else {}
 				
 				line = null;
 			}

@@ -3,11 +3,11 @@ package turismodelatierramedia;
 public class Promocion implements comprable{
 
 	private String tipopromocion;
-    private String atracciones;
+    private comprable[] atracciones;
     private double costopromocion;
 	
     
-    public Promocion(String tipopromocion, String atracciones, double costopromocion) {
+    public Promocion(String tipopromocion, comprable[] atracciones, double costopromocion) {
 		super();
 		this.tipopromocion = tipopromocion;
 		this.atracciones = atracciones;
@@ -18,7 +18,7 @@ public class Promocion implements comprable{
 		return costopromocion;
 	}
 	
-    public String getAtracciones() {
+    public comprable[] getAtracciones() {
 		return atracciones;
 	}
     
@@ -30,7 +30,8 @@ public class Promocion implements comprable{
 
 	@Override
 	public int getTiempo() {
-		// TODO Auto-generated method stub
+	for (int I = 1; this.atracciones.length(); I++) {	
+	; }
 		return 0;
 	}
 
@@ -41,9 +42,21 @@ public class Promocion implements comprable{
 	}
 
 	@Override
-	public boolean esOContiene() {
+	public boolean esOContiene(comprable compra) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void agregarPersona() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

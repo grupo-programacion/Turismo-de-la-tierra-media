@@ -10,6 +10,10 @@ public interface comprable {
 	
 	public boolean hayCupo();
 	
-	public boolean esOContiene();
+	public boolean esOContiene(comprable compra);
+	
+	public void agregarPersona();
+	
+	public String getNombre();
 	
 }
