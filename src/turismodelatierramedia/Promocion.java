@@ -30,7 +30,7 @@ public class Promocion implements comprable{
 
 	@Override
 	public int getTiempo() {
-	for (int I = 1; this.atracciones.length(); I++) {	
+	for (int I = 1; this.atracciones.sort(); I++) {	
 	; }
 		return 0;
 	}
