@@ -3,26 +3,28 @@ package turismodelatierramedia;
 public class Promocion implements comprable{
 
 	private String tipopromocion;
-    private comprable[] atracciones;
+    private Atraccion[] atracciones;
     private double costopromocion;
-	
+	private int I;
+    private int tiempodeproomocion;
+	private String[] nombres;
     
-    public Promocion(String tipopromocion, comprable[] atracciones, double costopromocion) {
-		super();
-		this.tipopromocion = tipopromocion;
-		this.atracciones = atracciones;
-		this.costopromocion = costopromocion;
-	}
 
 	public double getCosto() {
-		return costopromocion;
+		return this.calcularCostopromocion();
 	}
 	
-    public comprable[] getAtracciones() {
-		return atracciones;
+    public Atraccion[] getAtracciones() {
+    	return atracciones;
 	}
     
-    public void calcularCostopromocion() {}
+    public double calcularCostopromocion() {
+     double F = 0;
+    	while (I <= this.atracciones.length) {
+    	F += this.atracciones[I].getCosto();
+    	I++;}
+    	return F;
+    }
 
 	public String getTipo() {
 		return tipopromocion;
@@ -30,33 +32,41 @@ public class Promocion implements comprable{
 
 	@Override
 	public int getTiempo() {
-	for (int I = 1; this.atracciones.sort(); I++) {	
-	; }
-		return 0;
+	while (I <= this.atracciones.length) {	
+	tiempodeproomocion += this.atracciones[I].getTiempo(); 
+	I++;
+	}
+		return tiempodeproomocion;
 	}
 
 	@Override
 	public boolean hayCupo() {
-		// TODO Auto-generated method stub
-		return false;
+	boolean E = true;
+	while (I <= this.atracciones.length) {
+	E = this.atracciones[I].hayCupo();
+	I++;
 	}
+	return E; 
+}
 
 	@Override
 	public boolean esOContiene(comprable compra) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.equals(compra) || this.equals
 	}
 
 	@Override
 	public void agregarPersona() {
-		// TODO Auto-generated method stub
-		
+		while (I < this.atracciones.length) {
+			this.atracciones[I].agregarPersona();
+			I++;
 	}
+}
 
-	@Override
-	public String getNombre() {
-		// TODO Auto-generated method stub
-		return null;
+	public String[] getNombre() {
+		while (I <= this.atracciones.length) {
+		nombres[I] = this.atracciones[I].getNombre();
+		I++;
 	}
-	
+		return nombres;
+  }
 }

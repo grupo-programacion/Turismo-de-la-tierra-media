@@ -43,7 +43,7 @@ public class Atraccion implements comprable{
 	
 	@Override
 	public boolean esOContiene(comprable compra) {
-      return this.nombre.equals(compra.getNombre()) || ;
+      return this.equals(compra) || this.equals(compra);
 	}
 
 

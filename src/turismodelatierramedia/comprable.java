@@ -13,7 +13,5 @@ public interface comprable {
 	public boolean esOContiene(comprable compra);
 	
 	public void agregarPersona();
-	
-	public String getNombre();
-	
+		
 }
