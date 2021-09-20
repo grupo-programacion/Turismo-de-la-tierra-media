@@ -1,14 +1,16 @@
 package turismodelatierramedia;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
 
 public class Lectordearchivos {
 	
-	public void leerArchivoUsuarios(){
+	public static List<Usuario> leerArchivoUsuarios(){
 		
 		File f = new File("files/Usuarios.txt");
 		Scanner sc;
@@ -39,9 +41,10 @@ public class Lectordearchivos {
 		} catch (NumberFormatException e) {
 			System.err.println(e.getMessage());
 		}
+		return usuarios;
 	}
 	
-	public void leerArchivoAtraccion(){
+	public static List<Atraccion> leerArchivoAtraccion(){
 		
 		File f = new File("files/Atracciones.txt");
 		Scanner sc;
@@ -73,31 +76,44 @@ public class Lectordearchivos {
 		} catch (NumberFormatException e) {
 			System.err.println(e.getMessage());
 		}
+		return atracciones;
 	}
 
-	public void leerArchivoPromocion(){
+	public static List<Promocion> leerArchivoPromocion(){
 
 		File f = new File("files/Promociones.txt");
 		Scanner sc;
 		List<Promocion> promociones = new LinkedList<Promocion>();
 		String[] line;
+		Atraccion[] atrac;
 		
 		try {
 			sc = new Scanner(f);
 			
 			while(sc.hasNextLine()) {
 				line = sc.nextLine().split("-");
-
-				if (equal(Integer.parseInt(line[0]), 1)){
+                atrac = sc.nextAtraccion.split(",");
+				if (line[0] == "1"){
 				
 				promociones.add(
-					new Promocion(
-						line[0], 
+					new Promocionporcentual(
 						line[1], 
-					    Double.parseDouble(line[2])
+						line[2], 
+					    Double.parseDouble(line[3])
 					)
-				);} else if (line[0] = 2) {}
-				else {}
+				} else if (line[0] == "2") {
+					new Promocionabsoluta(
+						line[1], 
+						line[2], 
+					    Double.parseDouble(line[3])
+					)}
+				else {
+					new Promocionaxb(
+							line[1], 
+							line[2], 
+						    (line[3])
+						)
+				}
 				
 				line = null;
 			}

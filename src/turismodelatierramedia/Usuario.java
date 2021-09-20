@@ -7,13 +7,15 @@ public class Usuario {
 	private comprable[]sugerenciadiaria;
 	private int horasnecesarias;
 	private double monedasnecesarias;
-	private int I;
+	private int contador;
+	private String nombre;
 	
 	public Usuario(String nombre,String preferencia, double monedas, int tiempo) {
 		super();
 		this.tiempo = tiempo;
 		this.monedas = monedas;
 		this.preferencia = preferencia;
+		this.nombre = nombre;
 	}
 
 	public int getTiempoDisponible() {
@@ -43,11 +45,13 @@ public class Usuario {
 	public void imprimirItinerario() {
 		System.out.println(this.horasnecesarias);
 		System.out.println(this.monedasnecesarias);
-		System.out.println(this.sugerenciadiaria);
-		}
+		while (contador <= this.sugerenciadiaria.length) {
+		 	System.out.println(this.sugerenciadiaria[contador]);
+		 	contador++;}
+	}
 	
-	public boolean puedeComprar(comprable compra, Usuario user) {
-		return user.getMonedasDisponibles()>= compra.getCosto() && user.getTiempoDisponible()>= compra.getTiempo();
+	public boolean puedeComprar(comprable compra) {
+		return this.getMonedasDisponibles()>= compra.getCosto() && this.getTiempoDisponible()>= compra.getTiempo() && compra.hayCupo();
 	}
 	
 	public double getMonedasGastadas() {
@@ -59,12 +63,15 @@ public class Usuario {
 	}	
 	
 	public void guardarComprable(comprable compra) {
-		I++;
-		this.sugerenciadiaria[I] = compra;
+		this.sugerenciadiaria[contador] = compra;
 		this.restarMonedas(compra.getCosto());
 		this.restarTiempo(compra.getTiempo());
 		this.horasnecesarias += compra.getTiempo();
 		this.monedasnecesarias += compra.getCosto();
+		contador++;
 	}
 	
+    public String getNombre() {
+    	return this.nombre;
+    }
 }

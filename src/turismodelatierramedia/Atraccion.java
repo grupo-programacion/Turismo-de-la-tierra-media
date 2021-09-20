@@ -5,12 +5,14 @@ public class Atraccion implements comprable{
 	private String tipo;
 	private int duracion;
 	private int cupo;
-	private String nombre;
+	protected String[] nombre;
     private int personas;
+    private int contador;
+
     
 	public Atraccion(String nombre, double costo, int duracion, int cupo, String tipo) {
 		super();
-		this.nombre = nombre;
+		this.nombre[0] = nombre;
 		this.costo = costo;
 		this.tipo = tipo;
 		this.duracion = duracion;
@@ -37,16 +39,19 @@ public class Atraccion implements comprable{
 			personas++;
 	}
 
-	public String getNombre() {
+	public String[] getNombre() {
 	 return	this.nombre;
 	}
 	
 	@Override
 	public boolean esOContiene(comprable compra) {
-      return this.equals(compra) || this.equals(compra);
-	}
-
-
+	boolean J = false;
+	while (contador <= compra.getNombre().length) {
+		J =	this.nombre.equals(compra.getNombre()[contador]);
+	 contador++;
+	 }
+	return J;
+    }
 	
-	
+
 }

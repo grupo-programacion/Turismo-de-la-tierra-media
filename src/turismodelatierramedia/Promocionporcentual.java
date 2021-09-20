@@ -4,7 +4,7 @@ public class Promocionporcentual extends Promocion implements comprable {
 
 private String tipopromocion;
 private Atraccion[] atracciones;
-private int I;
+private int contador;
 private double descuento;
 
 
@@ -17,9 +17,9 @@ private double descuento;
  @Override
  public double calcularCostopromocion() {
 	 double F = 0;
- 	while (I <= this.atracciones.length) {
- 	F += this.atracciones[I].getCosto();
- 	I++;}
+ 	while (contador <= this.atracciones.length) {
+ 	F += this.atracciones[contador].getCosto();
+ 	contador++;}
  	return F - (F * descuento / 100);
  }
 

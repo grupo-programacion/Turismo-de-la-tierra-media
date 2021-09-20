@@ -4,8 +4,7 @@ public class Promocion implements comprable{
 
 	private String tipopromocion;
     private Atraccion[] atracciones;
-    private double costopromocion;
-	private int I;
+    private int contador;
     private int tiempodeproomocion;
 	private String[] nombres;
     
@@ -20,9 +19,9 @@ public class Promocion implements comprable{
     
     public double calcularCostopromocion() {
      double F = 0;
-    	while (I <= this.atracciones.length) {
-    	F += this.atracciones[I].getCosto();
-    	I++;}
+    	while (contador <= this.atracciones.length) {
+    	F += this.atracciones[contador].getCosto();
+    	contador++;}
     	return F;
     }
 
@@ -32,9 +31,9 @@ public class Promocion implements comprable{
 
 	@Override
 	public int getTiempo() {
-	while (I <= this.atracciones.length) {	
-	tiempodeproomocion += this.atracciones[I].getTiempo(); 
-	I++;
+	while (contador <= this.atracciones.length) {	
+	tiempodeproomocion += this.atracciones[contador].getTiempo(); 
+	contador++;
 	}
 		return tiempodeproomocion;
 	}
@@ -42,30 +41,35 @@ public class Promocion implements comprable{
 	@Override
 	public boolean hayCupo() {
 	boolean E = true;
-	while (I <= this.atracciones.length) {
-	E = this.atracciones[I].hayCupo();
-	I++;
+	while (contador <= this.atracciones.length) {
+	E = this.atracciones[contador].hayCupo();
+	contador++;
 	}
 	return E; 
 }
 
 	@Override
 	public boolean esOContiene(comprable compra) {
-		return this.equals(compra) || this.equals
+		boolean J = false;
+		while (contador <= compra.getNombre().length) {
+			J =	this.nombres[contador].equals(compra.getNombre()[contador]);
+		 contador++;
+		 }
+		return J;
 	}
 
 	@Override
 	public void agregarPersona() {
-		while (I < this.atracciones.length) {
-			this.atracciones[I].agregarPersona();
-			I++;
+		while (contador < this.atracciones.length) {
+			this.atracciones[contador].agregarPersona();
+			contador++;
 	}
 }
 
 	public String[] getNombre() {
-		while (I <= this.atracciones.length) {
-		nombres[I] = this.atracciones[I].getNombre();
-		I++;
+		while (contador <= this.atracciones.length) {
+		nombres[contador] = this.atracciones[contador].nombre[0];
+		contador++;
 	}
 		return nombres;
   }

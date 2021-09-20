@@ -1,27 +1,29 @@
 package turismodelatierramedia;
 
-public class Sistema {
+import java.util.List;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Scanner;
 
-	public void sugerirComprable(String[] args) {
-		
-		private static List<comprable> compras;
-		
+public class Sistema {
+	private static List<comprable> compras;
+	
+	public void sugerirComprable(comprable[] compras) {
 		System.out.println("Leer\n");
-		comprables = Lectordearchivos.leerArchivoUsuarios();
+		compras = Lectordearchivos.leerArchivoAtraccion();
 		
-		for(comprable I : comprables) System.out.println(v);
+		for(comprable v : compras) System.out.println(v);
 
 		System.out.println("\nOrdenar\n");
-
 		
-		comprables.sort(new ComparadorDeComprables(comprables.getTipo()));
+		compras.sort(new ComparadorDeComprables());
 		
-		for(comprable v :comprables) {
+		for(comprable v : compras) {
+		if(Usuario.puedeComprar(v))
 				System.out.println(v);
 		}
-		
-		System.out.println("\nEscribir\n");
-	}
+}
 	
 	public void guardarComprable(comprable compras, Usuario user) {
 		user.guardarComprable(compras);
